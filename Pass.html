@@ -1,0 +1,27 @@
+<HTML>
+<BODY>
+<SCRIPT LANGUAGE="JavaScript">
+function testResults (myform) {
+    var Username = myform.username.value;
+	fetch('https://manowar.okta.com/api/v1/authn/recovery/password', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*'
+    },  
+        mode: 'cors',
+        body: JSON.stringify({
+        'username': Username,
+        'factorType': 'SMS'
+    })
+});
+}
+</SCRIPT>
+<FORM NAME="myform" ACTION="" METHOD="GET">Enter something in the box: <BR>
+<INPUT TYPE="text" NAME="username" Value=""><P>
+<INPUT TYPE="submit" NAME="button" Value="Click" onClick="testResults(this.form)">
+</FORM>
+</BODY>
+</HTML>
