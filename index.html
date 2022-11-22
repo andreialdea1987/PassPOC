@@ -3,6 +3,7 @@
 <SCRIPT LANGUAGE="JavaScript">
 async function testResults (myform) {
 	var Username = myform.username.value;
+	var ASQ = myform.asq.value;
 	const response = await fetch('https://manowar.okta.com/api/v1/authn/recovery/password', {
     method: 'POST',
     headers: {
@@ -22,6 +23,7 @@ async function testResults (myform) {
 </SCRIPT>
 <FORM NAME="myform" ACTION="" METHOD="GET">Enter your username: <BR>
 <INPUT TYPE="text" NAME="username" Value=""><P>
+<INPUT TYPE="text" NAME="asq" Value=""><P>
 <INPUT TYPE="submit" NAME="button" Value="Submit" onClick="testResults(this.form).then(() => {console.log(response);})">
 </FORM>
 </BODY>
